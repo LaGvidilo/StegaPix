@@ -1,22 +1,8 @@
 #coding: utf-8
 #for python3
-from PIL import Image, ImageDraw, ImageFont
+from PIL import Image
 import random
 from stegano import lsb
-
-
-choix = input("stegapix (E)nc/(D)ec ? ")
-if (choix.lower()=="e"):
-	message = input("Message: ")
-	passe = input("Password: ")
-	infile = input("Input File Path and Name: ")
-	outfile = input("Out File Path and Name: ")
-	stegapixEncode(message,passe,infile,outfile)
-if (choix.lower()=="d"):
-	message = input("Message: ")
-	passe = input("Password: ")
-	infile = input("Input File Path and Name: ")
-	stegapixDecode(message,passe,infile)
 
 def stegapixEncode(message,passe,infile,outfile):
 	caracts = list("0123456789AZERTYUIOPMLKJHGFDSQWXCVBN?. !()+-*#@_")
@@ -73,6 +59,21 @@ def stegapixDecode(message,passe,infile):
 		if len(msg)>taille-1: break
 	msg = "".join(msg)
 	return msg
+
+
+choix = input("stegapix (E)nc/(D)ec ? ")
+if (choix.lower()=="e"):
+	message = input("Message: ")
+	passe = input("Password: ")
+	infile = input("Input File Path and Name: ")
+	outfile = input("Out File Path and Name: ")
+	stegapixEncode(message,passe,infile,outfile)
+if (choix.lower()=="d"):
+	message = input("Message: ")
+	passe = input("Password: ")
+	infile = input("Input File Path and Name: ")
+	stegapixDecode(message,passe,infile)
+
 
 
 
